@@ -1,9 +1,5 @@
 package com.nate.algo.sorting;
 
-import java.lang.reflect.Array;
-
-import static com.nate.algo.util.Utils.swap;
-
 public class MergeSort {
 
     public static <T extends Comparable<T>> void sort(T[] arr) {

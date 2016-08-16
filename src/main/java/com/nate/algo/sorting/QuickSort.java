@@ -1,7 +1,5 @@
 package com.nate.algo.sorting;
 
-import java.util.Arrays;
-
 import static com.nate.algo.util.Utils.shuffle;
 import static com.nate.algo.util.Utils.swap;
 
