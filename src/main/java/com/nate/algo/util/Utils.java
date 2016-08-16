@@ -25,4 +25,8 @@ public final class Utils {
             swap(arr, i, j);
         }
     }
+
+    public static <K> int hash(K key) {
+        return key.hashCode();
+    }
 }

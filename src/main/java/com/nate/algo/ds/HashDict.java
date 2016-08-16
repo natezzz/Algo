@@ -3,6 +3,8 @@ package com.nate.algo.ds;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.nate.algo.util.Utils.hash;
+
 public class HashDict<K, V> implements IDictionary<K, V> {
 
     private Object[] table;  // use unchecked casting
@@ -63,7 +65,7 @@ public class HashDict<K, V> implements IDictionary<K, V> {
     }
 
     private List<Entry<K, V>> getEntryList(K key) {
-        int hash = key.hashCode() % tableSize;
+        int hash = hash(key) % tableSize;
         hash = (hash >= 0) ? hash : -hash;   // make hash positive
         List<Entry<K, V>> entryList = (List<Entry<K, V>>) table[hash];
         return entryList;
