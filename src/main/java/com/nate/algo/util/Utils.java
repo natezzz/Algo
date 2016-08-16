@@ -1,5 +1,7 @@
 package com.nate.algo.util;
 
+import java.util.Random;
+
 public final class Utils {
 
     private Utils() {}
@@ -12,5 +14,15 @@ public final class Utils {
         T temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
+    }
+
+    public static <T> void shuffle(T[] arr) {
+        assert (arr != null);
+
+        Random rd = new Random();
+        for (int i = (arr.length - 1); i >= 0; i--) {
+            int j = rd.nextInt(i + 1);
+            swap(arr, i, j);
+        }
     }
 }
