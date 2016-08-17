@@ -1,9 +1,9 @@
 package com.nate.algo.ds;
 
+import com.nate.algo.util.Utils;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.nate.algo.util.Utils.hash;
 
 public class HashDict<K, V> implements IDictionary<K, V> {
 
@@ -64,8 +64,15 @@ public class HashDict<K, V> implements IDictionary<K, V> {
         return null;
     }
 
+    private int hash(K key) {
+        int hash = Utils.hash(key);
+        hash = (hash > 0) ? hash : (-hash);
+        hash %= tableSize;
+        return hash;
+    }
+
     private List<Entry<K, V>> getEntryList(K key) {
-        int hash = hash(key) % tableSize;
+        int hash = hash(key);
         hash = (hash >= 0) ? hash : -hash;   // make hash positive
         List<Entry<K, V>> entryList = (List<Entry<K, V>>) table[hash];
         return entryList;
